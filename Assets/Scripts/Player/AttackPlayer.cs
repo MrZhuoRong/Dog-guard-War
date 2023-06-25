@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AttackPlayer : MonoBehaviour
 {
@@ -19,11 +20,11 @@ public class AttackPlayer : MonoBehaviour
 
     private float playerAttackTime = 0.1f;
 
-    static public int KillNumber = 0;
+    static public int KillNumber;
     // Start is called before the first frame update
     void Start()
     {
-        
+        KillNumber = 0;
         animator = GetComponent<Animator>();
         Attack01AniID = Animator.StringToHash("Attack01");
         Attack02AniID = Animator.StringToHash("Attack02");
@@ -89,5 +90,9 @@ public class AttackPlayer : MonoBehaviour
 
     }
 
+    public void EnterGameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
     
 }

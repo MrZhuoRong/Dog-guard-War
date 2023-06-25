@@ -12,7 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa21d1f4d5a5ddf48a0d77574d3889b7, type: 3}
   m_Name: Enemy Data
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  currentHealth: 20
-  attackValue: 5
-  attackRange: 0.5
+  maxHealth: 100
+  currentHealth: 100

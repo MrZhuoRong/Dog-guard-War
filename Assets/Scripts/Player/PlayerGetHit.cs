@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerGetHit : MonoBehaviour
 {
@@ -76,35 +77,23 @@ public class PlayerGetHit : MonoBehaviour
                 {
                     Debug.Log(other.tag);
                     PlayercharacterStats.GetDamage(PlayercharacterStats);//扣除对应攻击对象的血量
-                    if (PlayercharacterStats.CurrentHealth == 0)
-                    {
-                        playerIsDie = true;
-                        animator.SetBool("IsDie", playerIsDie);
-                    }
-                    invincibleTime = setInvincibleTime;
                 }
                 else if (other.tag == "BossAttack")
                 {
                     Debug.Log(other.tag);
                     PlayercharacterStats.GetDoubleDamage(PlayercharacterStats);//扣除对应攻击对象的血量
-                    if (PlayercharacterStats.CurrentHealth == 0)
-                    {
-                        playerIsDie = true;
-                        animator.SetBool("IsDie", playerIsDie);
-                    }
-                    invincibleTime = setInvincibleTime;
                 }
                 else if (other.tag == "SpearD")
                 {
                     Debug.Log(other.tag);
                     PlayercharacterStats.GetDoubleDamage(PlayercharacterStats);//扣除对应攻击对象的血量
-                    if (PlayercharacterStats.CurrentHealth == 0)
-                    {
-                        playerIsDie = true;
-                        animator.SetBool("IsDie", playerIsDie);
-                    }
                     invincibleTime = setInvincibleTime;
                 }
+            }
+            if (PlayercharacterStats.CurrentHealth == 0)
+            {
+                playerIsDie = true;
+                animator.SetBool("IsDie", playerIsDie);
             }
         }
     }
